@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Substitute variables here
+ORG_NAME="compareasiagroup"
+TMP_LIST="/tmp/.github_repos"
+ACCESS_TOKEN="0261caf97186aee69c8a333377a9376075cc5d58"
+mkdir repos
+cd repos
+
+URL="https://api.github.com/orgs/${ORG_NAME}/repos?per_page=100&access_token=${ACCESS_TOKEN}"
+URL2="https://api.github.com/orgs/${ORG_NAME}/repos?page=2&per_page=100&access_token=${ACCESS_TOKEN}"
+
+curl ${URL} > ${TMP_LIST}
+curl ${URL2} >> ${TMP_LIST}
+
+cat ${TMP_LIST} | grep ssh_url | while IFS='"' read t1 t2 t3 t4 t5; do
+   git clone ${t4} --branch develop
+   git clone ${t4}
+done 
+
