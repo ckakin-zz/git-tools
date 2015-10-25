@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# Substitute variables here
+###
+# a simple script to clone all CGG repos
+### 
+
+
+# Substitute variables here, create token in github
 ORG_NAME="compareasiagroup"
 TMP_LIST="/tmp/.github_repos"
-ACCESS_TOKEN="0261caf97186aee69c8a333377a9376075cc5d58"
+ACCESS_TOKEN="{{YOUR_TOKEN}}"
 mkdir repos
 cd repos
 
